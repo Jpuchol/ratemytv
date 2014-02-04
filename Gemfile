@@ -19,6 +19,9 @@ gem 'mechanize'
 #gem 'jQuery-File-Upload'
 
 
+  gem 'jquery-ui-rails'
+  gem 'jquery-modal-rails'
+
 group :development, :test do
 	gem 'sqlite3', '1.3.7'
 	gem 'rspec-rails', '2.13.1'

@@ -1,5 +1,11 @@
 Ratemytv::Application.routes.draw do
-  match '/research',    to: 'films#get',                via: 'get'
+  match '/get1',    to: 'films#get1',                via: 'get'
+  match '/get2',    to: 'films#get2',                via: 'get'
+  match '/get3',    to: 'films#get3',                via: 'get'
+  match '/get4',    to: 'films#get4',                via: 'get'
+  match '/get5',    to: 'films#get5',                via: 'get'
+  match '/get6',    to: 'films#get6',                via: 'get'
+  match '/get7',    to: 'films#get7',                via: 'get'
   match '/press',       to: 'films#showBestPress',      via: 'get'
   match '/spectators',  to: 'films#showBestSpectator',  via: 'get'
   root 'static_pages#home'

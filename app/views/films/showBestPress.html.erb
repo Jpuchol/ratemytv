@@ -1,0 +1,4 @@
+<h1>Films : Best for the press</h1>
+<% @films.each do |film| %>
+<p> <%= film.name %> : press  <%= film.press %> spectator <%= film.spectator %>, link : <%= film.link %> </p><hr>
+<% end %>

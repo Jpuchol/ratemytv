@@ -66,6 +66,6 @@ class FilmsController < ApplicationController
 	end
 
 	def self.getDate
-		return Film.last.updated_at
+		return Film.last.updated_at unless Film.nil?
 	end
 end

@@ -1,4 +1,6 @@
 <h1>Films : Best for the spectators</h1>
 <% @films.each do |film| %>
-<p> <%= film.name %> : press  <%= film.press %> spectator <%= film.spectator %>, link : <%= film.link %> </p><hr>
+<div class="modalBox">
+<p> <%= link_to film.name, film.link, :target => "_blank" %> : press  <%= film.press %> spectator <%= film.spectator %></a> </p><hr>
 <% end %>
+</div>

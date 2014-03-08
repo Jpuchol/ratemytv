@@ -12,9 +12,9 @@ class Film < ActiveRecord::Base
 		end
 	end
 
-	def self.film!(name,press,spectator,link)
+	def self.film!(name,press,spectator,link,senscritique)
 		if(exists?(link)==false) 
-			create!(name: name,press: press,spectator: spectator,link: link)
+			create!(name: name,press: press,spectator: spectator,link: link,senscritique: senscritique)
 		end
 	end
 end

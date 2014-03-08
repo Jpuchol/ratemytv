@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204183141) do
+ActiveRecord::Schema.define(version: 20140308124615) do
 
   create_table "films", force: true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140204183141) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "senscritique"
   end
 
 end

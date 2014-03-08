@@ -6,6 +6,7 @@ class FilmsController < ApplicationController
   	Film.delete_all
 	agent = Mechanize.new
 	agent2 = Mechanize.new
+	agent3 = Mechanize.new
 
 	j=1
 	
@@ -19,11 +20,10 @@ class FilmsController < ApplicationController
 			        if page.links[i].text().eql?('Enregistrement')==false
 			          
 			          film = agent2.get('http://www.allocine.fr/recherche/?q='+page.links[i].text().split(' ').join("+"))
-
 			          	unless film.links_with(:href => /film/)[1].nil?
 				            link = "http://www.allocine.fr"+film.links_with(:href => /film/)[1].uri().to_s
 				            film = film.links_with(:href => /film/)[1].click
-
+		            		senscritique = 'http://www.senscritique.com/recherche?query='+page.links[i].text().split(' ').join("+")
 
 
 				            for k in 0..1 
@@ -40,7 +40,7 @@ class FilmsController < ApplicationController
 				          		end
 				        	end
 
-				        	Film.film!(film.title(),press,spectator,link)
+				        	Film.film!(film.title(),press,spectator,link,senscritique)
 
 			        
 			    		end
@@ -78,6 +78,7 @@ class FilmsController < ApplicationController
 			          	unless film.links_with(:href => /film/)[1].nil?
 				            link = "http://www.allocine.fr"+film.links_with(:href => /film/)[1].uri().to_s
 				            film = film.links_with(:href => /film/)[1].click
+				            senscritique = 'http://www.senscritique.com/recherche?query='+page.links[i].text().split(' ').join("+")
 
 
 
@@ -95,7 +96,7 @@ class FilmsController < ApplicationController
 				          		end
 				        	end
 
-				        	Film.film!(film.title(),press,spectator,link)
+				        	Film.film!(film.title(),press,spectator,link,senscritique)
 
 			        
 			    		end
@@ -133,6 +134,7 @@ class FilmsController < ApplicationController
 			          	unless film.links_with(:href => /film/)[1].nil?
 				            link = "http://www.allocine.fr"+film.links_with(:href => /film/)[1].uri().to_s
 				            film = film.links_with(:href => /film/)[1].click
+				            senscritique = 'http://www.senscritique.com/recherche?query='+page.links[i].text().split(' ').join("+")
 
 
 
@@ -150,7 +152,7 @@ class FilmsController < ApplicationController
 				          		end
 				        	end
 
-				        	Film.film!(film.title(),press,spectator,link)
+				        	Film.film!(film.title(),press,spectator,link,senscritique)
 
 			        
 			    		end
@@ -188,6 +190,7 @@ class FilmsController < ApplicationController
 			          	unless film.links_with(:href => /film/)[1].nil?
 				            link = "http://www.allocine.fr"+film.links_with(:href => /film/)[1].uri().to_s
 				            film = film.links_with(:href => /film/)[1].click
+				            senscritique = 'http://www.senscritique.com/recherche?query='+page.links[i].text().split(' ').join("+")
 
 
 
@@ -205,7 +208,7 @@ class FilmsController < ApplicationController
 				          		end
 				        	end
 
-				        	Film.film!(film.title(),press,spectator,link)
+				        	Film.film!(film.title(),press,spectator,link,senscritique)
 
 			        
 			    		end
@@ -243,6 +246,7 @@ class FilmsController < ApplicationController
 			          	unless film.links_with(:href => /film/)[1].nil?
 				            link = "http://www.allocine.fr"+film.links_with(:href => /film/)[1].uri().to_s
 				            film = film.links_with(:href => /film/)[1].click
+				            senscritique = 'http://www.senscritique.com/recherche?query='+page.links[i].text().split(' ').join("+")
 
 
 
@@ -260,7 +264,7 @@ class FilmsController < ApplicationController
 				          		end
 				        	end
 
-				        	Film.film!(film.title(),press,spectator,link)
+				        	Film.film!(film.title(),press,spectator,link,senscritique)
 
 			        
 			    		end
@@ -298,7 +302,7 @@ class FilmsController < ApplicationController
 			          	unless film.links_with(:href => /film/)[1].nil?
 				            link = "http://www.allocine.fr"+film.links_with(:href => /film/)[1].uri().to_s
 				            film = film.links_with(:href => /film/)[1].click
-
+				            senscritique = 'http://www.senscritique.com/recherche?query='+page.links[i].text().split(' ').join("+")
 
 
 				            for k in 0..1 
@@ -315,7 +319,7 @@ class FilmsController < ApplicationController
 				          		end
 				        	end
 
-				        	Film.film!(film.title(),press,spectator,link)
+				        	Film.film!(film.title(),press,spectator,link,senscritique)
 
 			        
 			    		end
@@ -353,6 +357,7 @@ class FilmsController < ApplicationController
 			          	unless film.links_with(:href => /film/)[1].nil?
 				            link = "http://www.allocine.fr"+film.links_with(:href => /film/)[1].uri().to_s
 				            film = film.links_with(:href => /film/)[1].click
+				            senscritique = 'http://www.senscritique.com/recherche?query='+page.links[i].text().split(' ').join("+")
 
 
 
@@ -370,7 +375,7 @@ class FilmsController < ApplicationController
 				          		end
 				        	end
 
-				        	Film.film!(film.title(),press,spectator,link)
+				        	Film.film!(film.title(),press,spectator,link,senscritique)
 
 			        
 			    		end

@@ -1,6 +1,10 @@
 <h1>Films : Best for the spectators</h1>
 <% @films.each do |film| %>
-<div class="modalBox">
-<p> <%= link_to film.name, film.link, :target => "_blank" %> : press  <%= film.press %> spectator <%= film.spectator %> <%= link_to "sensCritique", film.senscritique, :target => "_blank" %></a> </p><hr>
+	<div class="modalBox">
+	<p> 
+	<% if film.name[1,13].eql?("Prochainement") || film.name[1,3].eql?("Tag") %>
+	<% else %>
+		<%= link_to film.name, film.link, :target => "_blank" %> : press  <%= film.press %> spectator <%= film.spectator %> <%= link_to "sensCritique", film.senscritique, :target => "_blank" %></a> </p><hr> 
+	<% end %>
 <% end %>
 </div>

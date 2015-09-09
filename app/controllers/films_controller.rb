@@ -62,7 +62,7 @@ class FilmsController < ApplicationController
 		    else 
 		      link_allocine = film_retrieve.links[link+1].uri()
 		      film_retrieve = film_retrieve.links[link+1].click
-		      senscritique = 'http://www.senscritique.com/recherche?query='+page.links[i].text().split(' ').join("+")
+		      senscritique = 'http://www.senscritique.com/recherche?query='+infos[0].split(' ').join("+")
 
 
 
@@ -79,8 +79,9 @@ class FilmsController < ApplicationController
 		          end
 		        end
 		      end
-		      Film.film!(name,notePresse,noteSpectateurs,link_allocine.to_s,senscritique)
-		      
+		      if(name?eql("")==false)
+		      	Film.film!(name,notePresse,noteSpectateurs,link_allocine.to_s,senscritique)
+		      end
 		    end
 		    i=i+2
 		  end

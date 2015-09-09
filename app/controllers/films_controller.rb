@@ -56,8 +56,8 @@ class FilmsController < ApplicationController
 		    end
 
 		    if (film_retrieve.links[link] == nil) 
-		      notePresse = "NC"
-		      noteSpectateurs = "NC"
+		      notePresse = "0"
+		      noteSpectateurs = "0"
 		      link_allocine = "NC"
 		    else 
 		      link_allocine = film_retrieve.links[link+1].uri()
@@ -79,7 +79,7 @@ class FilmsController < ApplicationController
 		          end
 		        end
 		      end
-		      Film.film!(name,notePresse,noteSpectateurs,link_allocine,senscritique)
+		      Film.film!(name,notePresse,noteSpectateurs,link_allocine.to_s,senscritique)
 		      
 		    end
 		    i=i+2

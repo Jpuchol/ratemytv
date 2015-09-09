@@ -23,7 +23,7 @@ gem 'mechanize'
   gem 'jquery-modal-rails'
 
 group :development, :test do
-	gem 'sqlite3', '1.3.7'
+	gem 'sqlite3', '1.3.10'
 	gem 'rspec-rails', '2.13.1'
 	gem 'guard-rspec', '2.5.0'
 	gem 'spork-rails', '4.0.0'
@@ -49,6 +49,6 @@ group :doc do
 end
 
 group :production do
-	gem 'pg', '0.15.1'
+	gem 'pg', '0.18.3'
 	gem 'rails_12factor', '0.0.2'
 end

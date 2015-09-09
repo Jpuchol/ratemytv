@@ -42,7 +42,7 @@ class FilmsController < ApplicationController
 
 
 
-		    film = agent2.get('http://www.allocine.fr/recherche/?q='+infos[0])
+		    film_retrieve = agent2.get('http://www.allocine.fr/recherche/?q='+infos[0])
 		    link = 0
 		    name = infos[0].strip!
 		    if name != nil 
@@ -51,23 +51,23 @@ class FilmsController < ApplicationController
 		    
 		    
 		    
-		    while (film.links[link] != nil && "".eql?(film.links[link].text())==false) 
+		    while (film_retrieve.links[link] != nil && "".eql?(film_retrieve.links[link].text())==false) 
 		      link = link + 1
 		    end
 
-		    if (film.links[link] == nil) 
+		    if (film_retrieve.links[link] == nil) 
 		      notePresse = "NC"
 		      noteSpectateurs = "NC"
 		      link_allocine = "NC"
 		    else 
-		      link_allocine = film.links[link+1].uri()
-		      film = film.links[link+1].click
+		      link_allocine = film_retrieve.links[link+1].uri()
+		      film_retrieve = film_retrieve.links[link+1].click
 		      senscritique = 'http://www.senscritique.com/recherche?query='+page.links[i].text().split(' ').join("+")
 
 
 
 		      for k in 0..1 
-		        unless (search = film.search(".//span[@class='note']")[k].to_s).nil?
+		        unless (search = film_retrieve.search(".//span[@class='note']")[k].to_s).nil?
 		          tab = search.split('>') unless search.nil?
 		          until ( tab[0].nil? || tab[0][0,1].eql?("<")==false)
 		            tab.delete_at(0)
@@ -82,9 +82,6 @@ class FilmsController < ApplicationController
 		      Film.film!(name,notePresse,noteSpectateurs,link_allocine,senscritique)
 		      
 		    end
-		    puts "Note presse : ".concat(notePresse)
-		    puts "Note spectateurs : ".concat(noteSpectateurs)
-		    puts "Lien allocine : ".concat(link_allocine.to_s)
 		    i=i+2
 		  end
 		  j=j+1
